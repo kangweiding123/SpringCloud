@@ -10,24 +10,48 @@
 
     <name>EagleEye</name>
     <description>Licensing Service</description>
-
+    <!--告诉Maven包含Spring Boot起步工具包依赖项-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.0.4.RELEASE</version>
         <relativePath/>
     </parent>
+
+
     <dependencies>
+        <!--告诉Maven包含Spring Boot Web依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+        <!--告诉Maven包含Spring Boot Actuator依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+        <!--告诉Spring Boot将要在服务中使用Java Persistence API(JPA)-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <!--告诉Spring Boot拉取Postgres JDBC驱动程序-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <!--告诉Spring Boot 拉取 Spring Cloud Config客户端所需要的所有依赖项-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
     </dependencies>
 
+    <!--包含Spring 特定的Maven插件，用于构建和部署Spring Boot应用程序-->
     <build>
         <plugins>
             <plugin>
@@ -36,5 +60,18 @@
             </plugin>
         </plugins>
     </build>
-    
+
+    <!--设定Spring Cloud的版本-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
 </project>

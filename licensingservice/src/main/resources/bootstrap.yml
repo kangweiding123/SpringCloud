@@ -1,0 +1,11 @@
+server:
+  port: 8881
+spring:
+  application:
+    name: licensingservice #制定与可证服务的名称，以便Spring CLoud Config客户端知道正在查找哪个服务
+  profiles:
+    active: default #指定该服务运行的默认profile oprofile映射到环境
+  cloud:
+    config:
+      uri: http://localhost:8888 #指定Spring Cloud Config服务器的位置
+

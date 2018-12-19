@@ -1,10 +1,11 @@
 server:
-  port: 8888
+  port: 8888 #设置监听的端口号
 spring:
   profiles:
-    active: native
+    active: native #用于存储配置的后端存储库(文件系统)
   cloud:
     config:
       server:
         native:
-          searchLocations: file://Users/kangweiding/JavaProjects/SpringMicroservice/confsvr/src/main/resources/licensingservice/licensingservice
+        #配置文件存储的路径
+          searchLocations: /Users/kangweiding/JavaProjects/SpringMicroservice/confsvr/src/main/resources/config/licensingservice/
