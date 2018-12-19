@@ -6,8 +6,11 @@ spring:
   cloud:
     config:
       server:
-        git:
-          uri: https://github.com/kangweiding123/SpringCloud/config
-#        native:
-#        #配置文件存储的路径
-#          searchLocations: /Users/kangweiding/JavaProjects/SpringMicroservice/confsvr/src/main/resources/config/licensingservice/
+#        git: #告诉Spring Cloud Config使用Git作为存储库
+#          uri: https://github.com/carnellj/config-repo/ #告诉Spring Cloud Git服务器和Git存储库的URL
+#          search-paths: licensingservice #告诉Spring Cloud Config在Git中查找配置文件的路径
+#          username: native-cloud-apps
+#          password: 0ffended
+        native:
+        #配置文件存储的路径
+          searchLocations: /Users/kangweiding/JavaProjects/SpringMicroservice/confsvr/src/main/resources/config/licensingservice/

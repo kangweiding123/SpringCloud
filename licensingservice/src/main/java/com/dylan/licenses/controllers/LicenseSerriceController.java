@@ -2,6 +2,7 @@ package com.dylan.licenses.controllers;
 
 import com.dylan.licenses.config.ServiceConfig;
 import com.dylan.licenses.model.License;
+import com.dylan.licenses.services.LicenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value="/v1/organizations/{organizationId}/license")
 public class LicenseSerriceController {
+    @Autowired
+    private LicenseService licenseService;
 
     @Autowired
     ServiceConfig serviceConfig;

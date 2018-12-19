@@ -37,8 +37,9 @@
         </dependency>
         <!--告诉Spring Boot拉取Postgres JDBC驱动程序-->
         <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>RELEASE</version>
         </dependency>
         <!--告诉Spring Boot 拉取 Spring Cloud Config客户端所需要的所有依赖项-->
         <dependency>
