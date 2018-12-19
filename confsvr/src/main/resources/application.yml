@@ -1,16 +1,16 @@
 server:
   port: 8888 #设置监听的端口号
 spring:
-  profiles:
-    active: native #用于存储配置的后端存储库(文件系统)
+#  profiles:
+#    active: native #用于存储配置的后端存储库(文件系统)
   cloud:
     config:
       server:
-#        git: #告诉Spring Cloud Config使用Git作为存储库
-#          uri: https://github.com/carnellj/config-repo/ #告诉Spring Cloud Git服务器和Git存储库的URL
-#          search-paths: licensingservice #告诉Spring Cloud Config在Git中查找配置文件的路径
-#          username: native-cloud-apps
-#          password: 0ffended
-        native:
-        #配置文件存储的路径
-          searchLocations: /Users/kangweiding/JavaProjects/SpringMicroservice/confsvr/src/main/resources/config/licensingservice/
+        git: #告诉Spring Cloud Config使用Git作为存储库
+          uri: https://github.com/kangweiding123/SpringCloud/ #告诉Spring Cloud Git服务器和Git存储库的URL
+          search-paths: config #告诉Spring Cloud Config在Git中查找配置文件的路径
+          username: kangweiding123
+          password: 1slikeKD
+#        native:
+#        #配置文件存储的路径
+#          searchLocations: /Users/kangweiding/JavaProjects/SpringMicroservice/confsvr/src/main/resources/config/licensingservice/

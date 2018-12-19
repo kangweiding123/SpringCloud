@@ -35,7 +35,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-        <!--告诉Spring Boot拉取Postgres JDBC驱动程序-->
+        <!--告诉Spring Boot拉取MySQL JDBC驱动程序-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
