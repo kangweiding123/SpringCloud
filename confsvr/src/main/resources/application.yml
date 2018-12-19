@@ -8,7 +8,7 @@ spring:
       server:
         git: #告诉Spring Cloud Config使用Git作为存储库
           uri: https://github.com/kangweiding123/SpringCloud/ #告诉Spring Cloud Git服务器和Git存储库的URL
-          search-paths: config #告诉Spring Cloud Config在Git中查找配置文件的路径
+          search-paths: config/licensingservice #告诉Spring Cloud Config在Git中查找配置文件的路径
           username: kangweiding123
           password: 1slikeKD
 #        native:
