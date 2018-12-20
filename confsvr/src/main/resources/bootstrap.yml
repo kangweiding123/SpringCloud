@@ -1,3 +1,11 @@
 spring:
   application:
     name: configserver
+encrypt:
+  key-store:
+    location: classpath:/config-server.jks # server.jks的配置文件的路径
+    password: dylan.com #studyjava      # 设置store的密码
+    alias: config-server-key
+    secret: dylan.com #changeit      # keypass密码
+#对称加密密钥
+#  key: dylan
