@@ -1,4 +1,9 @@
 spring:
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: true #设置服务端不进行解密
   application:
     name: configserver
 encrypt:

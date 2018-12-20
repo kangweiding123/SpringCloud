@@ -11,8 +11,6 @@ spring:
           search-paths: config/licensingservice #告诉Spring Cloud Config在Git中查找配置文件的路径
           username: kangweiding123
           password: 1slikeKD
-        encrypt:
-          enabled: false #设置服务端不进行解密
 #        native:
 #        #配置文件存储的路径
 #          searchLocations: /Users/kangweiding/JavaProjects/SpringMicroservice/confsvr/src/main/resources/config/licensingservice/

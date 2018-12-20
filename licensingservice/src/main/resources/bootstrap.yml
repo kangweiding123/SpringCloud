@@ -9,3 +9,4 @@ spring:
     config:
       uri: http://localhost:8888 #指定Spring Cloud Config服务器的位置
 
+
