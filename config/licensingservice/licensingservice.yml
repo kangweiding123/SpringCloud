@@ -2,7 +2,7 @@ example.property: I AM THE DEFAULT
 spring.datasource.driver-class-name: com.mysql.jdbc.Driver
 spring.datasource.url: jdbc:mysql://127.0.0.1:3306/DIny
 spring.datasource.username: dylan
-spring.datasource.password: "{cipher}9e4d9060f50cf3cdd12fee0ad50cfe48aa2c372b11357b55de24bf90150fb47e"
+spring.datasource.password: "{cipher}AQBdZJAScfmWQDek+3h7Ep9jo+oNC4LdHWrZf9F77HcJvWkQyz+URmpKgix4JeK8M/8Bikx2FsLU6ewYKuuR5TZ18+oTp+hUaRs/L2Sg0+MfT8OTRpkFo6OZGRD2wl3GbpZ2ExNRtzfeKnrHqbUOrdxIWRYorh0TfHb6oUhtTL/REJO7KVRmDvCG9sG9OzgzjWC2jUOtkJ9xhMaAVCiJwZkVUiUgm5UIXj94kWZoj+vcwW8hPMMpDrZAN/rJxib2aOw/J/UJD9je8zWEx1dc9mP410DWzK9ctEAL4lCVAP5hNSDxju/h3GfKq7FXahSwqyuYOXj21MvZly1l6MPNcjSigQRhLeKV1MgeG4HjDnm6wSwoy+uVXcP+HY3VsgjP/DU="
 spring.datasource.testWhileIdle: true
 spring.datasource.validationQuery: SELECT 1
 spring.jpa.database: MYSQL
