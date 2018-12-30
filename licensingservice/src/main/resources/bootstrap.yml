@@ -8,5 +8,12 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888 #指定Spring Cloud Config服务器的位置
+encrypt:
+  key-store:
+    location: classpath:/config-server.jks # server.jks的配置文件的路径
+    password: dylan.com      # 设置store的密码
+    alias: config-server-key
+    secret: dylan.com      # keypass密码
+#  key: dylan #解密属性文件的密钥
 
 

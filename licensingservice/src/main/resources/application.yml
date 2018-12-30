@@ -8,4 +8,4 @@ management:
             exposure:
                 include: '*' #开放所有页面节点  默认只开启了health、info两个节点
     server:
-        port: 9001 #actuator端口,比如访问 http://localhost:9001/actuator 但是其他请求依然是server.port设置的端口
+        port: 9002 #actuator端口,比如访问 http://localhost:9001/actuator 但是其他请求依然是server.port设置的端口

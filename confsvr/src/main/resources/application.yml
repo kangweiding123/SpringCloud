@@ -1,5 +1,5 @@
 server:
-  port: 8888 #设置监听的端口号
+  port: 8888 #设置Spring Cloud配置服务器将要监听的端口号
 spring:
 #  profiles:
 #    active: native #用于存储配置的后端存储库(文件系统)
@@ -14,3 +14,14 @@ spring:
 #        native:
 #        #配置文件存储的路径
 #          searchLocations: /Users/kangweiding/JavaProjects/SpringMicroservice/confsvr/src/main/resources/config/licensingservice/
+#management:
+#    endpoint:
+#        health:
+#            show-details: always #显示健康具体信息  默认不会显示详细信息
+#    endpoints:
+#        web:
+#            base-path: /actuator #修改访问路径  2.0之前默认是/   2.0默认是 /actuator  可以通过这个属性值修改
+#            exposure:
+#                include: '*' #开放所有页面节点  默认只开启了health、info两个节点
+#    server:
+#        port: 9001 #actuator端口,比如访问 http://localhost:9001/actuator 但是其他请求依然是server.port设置的端口

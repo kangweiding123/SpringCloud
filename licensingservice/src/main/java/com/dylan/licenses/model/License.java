@@ -115,10 +115,4 @@ public class License {
         this.setComment(comment);
         return this;
     }
-
-
-
-
-
-
 }
