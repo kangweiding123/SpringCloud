@@ -2,7 +2,7 @@ eureka:
   instance:
     hostname: organization #主机名
     instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} #显示名称
-    prefer-ip-address: true
+    prefer-ip-address: true #注册服务的IP,而不是服务的名称
   client:
     register-with-eureka: true #向Eureka注册服务
     fetch-registry: true #拉取注册表的本地副本

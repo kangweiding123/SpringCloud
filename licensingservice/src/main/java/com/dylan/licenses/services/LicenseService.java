@@ -1,7 +1,11 @@
 package com.dylan.licenses.services;
 
+import com.dylan.licenses.clients.OrganizationDiscoveryClient;
+import com.dylan.licenses.clients.OrganizationFeignClient;
+import com.dylan.licenses.clients.OrganizationRestTemplateClient;
 import com.dylan.licenses.config.ServiceConfig;
 import com.dylan.licenses.model.License;
+import com.dylan.licenses.model.Organization;
 import com.dylan.licenses.repository.LicenseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,9 +22,50 @@ public class LicenseService {
     @Autowired
     ServiceConfig config;
 
-    public License getLicense(String organizationId, String licenseId) {
+    @Autowired
+    OrganizationFeignClient organizationFeignClient;
+
+    @Autowired
+    OrganizationRestTemplateClient organizationRestClient;
+
+    @Autowired
+    OrganizationDiscoveryClient organizationDiscoveryClient;
+
+
+    private Organization retrieveOrgInfo(String organizationId, String clientType){
+        Organization organization = null;
+
+        switch (clientType) {
+            case "feign":
+                System.out.println("I am using the feign client");
+                organization = organizationFeignClient.getOrganization(organizationId);
+                break;
+            case "rest":
+                System.out.println("I am using the rest client");
+                organization = organizationRestClient.getOrganization(organizationId);
+                break;
+            case "discovery":
+                System.out.println("I am using the discovery client");
+                organization = organizationDiscoveryClient.getOrganization(organizationId);
+                break;
+            default:
+                organization = organizationRestClient.getOrganization(organizationId);
+        }
+
+        return organization;
+    }
+
+    public License getLicense(String organizationId,String licenseId, String clientType) {
         License license = licenseRepository.findByOrganizationIdAndLicenseId(organizationId, licenseId);
-        return license.withComment(config.getProperty());
+
+        Organization org = retrieveOrgInfo(organizationId, clientType);
+
+        return license
+                .withOrganizationName( org.getName())
+                .withContactName( org.getContactName())
+                .withContactEmail( org.getContactEmail() )
+                .withContactPhone( org.getContactPhone() )
+                .withComment(config.getProperty());
     }
 
     public List<License> getLicensesByOrg(String organizationId){

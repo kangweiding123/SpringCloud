@@ -30,6 +30,14 @@ public class LicenseSerriceController {
                 .withOrganizationId("TestOrg");
     }
 
+    @RequestMapping(value = "/{licenseId}/{clientType}", method = RequestMethod.GET)
+    public License getlicenseWithClient(
+            @PathVariable("organizationId") String organizationId,
+            @PathVariable("licenseId") String licenseId,
+            @PathVariable("clientType") String clientType){
+        return licenseService.getLicense(organizationId,licenseId,clientType);
+    }
+
     /**
      * 测试config配置文件是否可以读取
      * url: http://localhost:8881/v1/organizations/123/license/hello

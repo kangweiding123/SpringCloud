@@ -1,3 +1,13 @@
+eureka:
+  instance:
+    hostname: configserver #主机名
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} #显示名称
+    prefer-ip-address: true #注册服务的IP,而不是服务的名称
+  client:
+    register-with-eureka: true #向Eureka注册服务
+    fetch-registry: true #拉取注册表的本地副本
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ #Eureka服务的位置
 server:
   port: 8888 #设置Spring Cloud配置服务器将要监听的端口号
 spring:
@@ -8,9 +18,10 @@ spring:
       server:
         git: #告诉Spring Cloud Config使用Git作为存储库
           uri: https://github.com/kangweiding123/SpringCloud/ #告诉Spring Cloud Git服务器和Git存储库的URL
-          search-paths: config/licensingservice #告诉Spring Cloud Config在Git中查找配置文件的路径
+          search-paths: config/licensingservice,config/organizationservice #告诉Spring Cloud Config在Git中查找配置文件的路径
           username: kangweiding123
           password: 1slikeKD
+      enabled: true
 #        native:
 #        #配置文件存储的路径
 #          searchLocations: /Users/kangweiding/JavaProjects/SpringMicroservice/confsvr/src/main/resources/config/licensingservice/
