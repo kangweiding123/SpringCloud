@@ -3,21 +3,33 @@ package com.dylan.licenses.controllers;
 import com.dylan.licenses.config.ServiceConfig;
 import com.dylan.licenses.model.License;
 import com.dylan.licenses.services.LicenseService;
+import com.dylan.licenses.utils.UserContextHolder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value="/v1/organizations/{organizationId}/license")
 public class LicenseSerriceController {
+    private static final Logger logger = LoggerFactory.getLogger(LicenseSerriceController.class);
+
     @Autowired
     private LicenseService licenseService;
 
     @Autowired
     ServiceConfig serviceConfig;
+
+    @RequestMapping(value="/",method = RequestMethod.GET)
+    public List<License> getLicenses(@PathVariable("organizationId") String organizationId) {
+        logger.info("LicenseServiceController Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
+        return licenseService.getLicensesByOrg(organizationId);
+    }
 
     @RequestMapping(value="/{licenseId}",method = RequestMethod.GET)
     public License getLicenses(

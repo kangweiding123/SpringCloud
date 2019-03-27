@@ -2,6 +2,7 @@ package com.dylan.licenses;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -15,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @RefreshScope
 @EnableDiscoveryClient
 @EnableFeignClients //使用Feign客户端
+@EnableCircuitBreaker //使用Hystrix
 public class LicenseApplication {
     public static void main(String[] args) {
         SpringApplication.run(LicenseApplication.class,args);
