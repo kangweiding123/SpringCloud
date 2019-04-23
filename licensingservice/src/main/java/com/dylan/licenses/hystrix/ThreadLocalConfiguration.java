@@ -19,7 +19,7 @@ public class ThreadLocalConfiguration {
     @PostConstruct
     public void init() {
         // 保留现有的Hystrix插件的引用
-        // 因为要注册一个新的兵法策略，所以要获取所有其他的Hystrix组件，然后重新设置Hystrix插件
+        // 因为要注册一个新的并发策略，所以要获取所有其他的Hystrix组件，然后重新设置Hystrix插件
         HystrixEventNotifier eventNotifier = HystrixPlugins.getInstance().getEventNotifier();
         HystrixMetricsPublisher metricsPublisher = HystrixPlugins.getInstance().getMetricsPublisher();
         HystrixPropertiesStrategy propertiesStrategy = HystrixPlugins.getInstance().getPropertiesStrategy();

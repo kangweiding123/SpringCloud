@@ -99,7 +99,7 @@ public class LicenseService {
                     //用于设置断路器的超时时间，默认1秒
                     @HystrixProperty(
                             name = "execution.isolation.thread.timeoutInMilliseconds",
-                            value = "10000"
+                            value = "1000"
                     ),
                     //控制Hystrix考虑将该断路器跳闸之前，在10s之内必须发生的连续调用数量，默认值为20
                     @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "10"),
@@ -114,7 +114,7 @@ public class LicenseService {
             })
     public List<License> getLicensesByOrg(String organizationId) {
         logger.info("LicenseService.getLicensesByOrg  Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
-//        randomlyRunLong(); //模拟超时
+        randomlyRunLong(); //模拟超时
         return licenseRepository.findByOrganizationId(organizationId);
     }
 
@@ -157,7 +157,7 @@ public class LicenseService {
 
     private void sleep() {
         try {
-            Thread.sleep(900);
+            Thread.sleep(1100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

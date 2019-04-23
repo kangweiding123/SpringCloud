@@ -1,5 +1,7 @@
 package com.dylan.licenses.controllers;
 
+import com.dylan.core.Exception.MyException;
+import com.dylan.core.response.ResponseResult;
 import com.dylan.licenses.config.ServiceConfig;
 import com.dylan.licenses.model.License;
 import com.dylan.licenses.services.LicenseService;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -56,8 +59,13 @@ public class LicenseSerriceController {
      * @return
      */
     @RequestMapping("/hello")
-    public String showUserAndPassword(){
+    public ResponseResult<String> showUserAndPassword() throws Exception {
         String sb = "username is " + serviceConfig.getProperty();
-        return sb;
+        ResponseResult responseResult = new ResponseResult();
+        List data = new ArrayList<String>();
+        data.add(sb);
+        responseResult.setResult(data);
+        responseResult.setTotal(0);
+        throw new MyException("9999","自定义错误实验");
     }
 }
