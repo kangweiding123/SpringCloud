@@ -1,6 +1,7 @@
 package com.dylan.licenses.controllers;
 
 import com.dylan.core.Exception.MyException;
+import com.dylan.core.response.ResponsResultImpl;
 import com.dylan.core.response.ResponseResult;
 import com.dylan.licenses.config.ServiceConfig;
 import com.dylan.licenses.model.License;
@@ -59,13 +60,15 @@ public class LicenseSerriceController {
      * @return
      */
     @RequestMapping("/hello")
-    public ResponseResult<String> showUserAndPassword() throws Exception {
+    public ResponsResultImpl showUserAndPassword() throws Exception {
         String sb = "username is " + serviceConfig.getProperty();
-        ResponseResult responseResult = new ResponseResult();
-        List data = new ArrayList<String>();
+        ResponseResult<String> responseResult = new ResponseResult();
+        List<String> data = new ArrayList<>();
         data.add(sb);
         responseResult.setResult(data);
         responseResult.setTotal(0);
+//        return ResponseResult.returnTimeOut();
+//        return responseResult;
         throw new MyException("9999","自定义错误实验");
     }
 }
