@@ -22,7 +22,16 @@ zuul:
     configstatic: #Zuul用于内部识别服务的关键字
       path: /config/**  #配置中心的静态路由
       url: http://127.0.0.1:8888  #已建立配置中心的静态实例。将被直接调用，而不是由Zuul通过Eureka调用
+#    licensestatic:
+#      path: /licensestatic/**
+#      serviceId: licensestatic #定义一个服务ID，该服务ID将用语在Ribbon中查找服务
     organizationservice: /organization/** #组织服务映射到organization
     licensingservice: /licensing/** #许可证服务映射到licensing
   ignored-services: '*' #ignored-service设置为'*',以排除所有基于Eureka服务ID的路由的注册
   prefix: /api #将所有已定义的服务都添加前缀/api
+#  ribbon:
+#    eureka:
+#      enabled: false #在Ribbon中禁用Eureka支持
+#  licensestatic:
+#    ribbon:
+#      listOfServers: http://licenseservice-static1:8081,htttp://licenseservice-static2:8081 #指定请求会路由到的服务器列表
