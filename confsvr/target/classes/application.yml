@@ -1,0 +1,38 @@
+eureka:
+  instance:
+    hostname: configserver #主机名
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} #显示名称
+    prefer-ip-address: true #注册服务的IP,而不是服务的名称
+  client:
+    register-with-eureka: true #向Eureka注册服务
+    fetch-registry: true #拉取注册表的本地副本
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ #Eureka服务的位置
+server:
+  port: 8888 #设置Spring Cloud配置服务器将要监听的端口号
+spring:
+#  profiles:
+#    active: native #用于存储配置的后端存储库(文件系统)
+  cloud:
+    config:
+      server:
+        git: #告诉Spring Cloud Config使用Git作为存储库
+          uri: https://github.com/kangweiding123/SpringCloud/ #告诉Spring Cloud Git服务器和Git存储库的URL
+          search-paths: config/licensingservice,config/organizationservice #告诉Spring Cloud Config在Git中查找配置文件的路径
+          username: kangweiding123
+          password: 1slikeKD
+      enabled: true
+#        native:
+#        #配置文件存储的路径
+#          searchLocations: /Users/kangweiding/JavaProjects/SpringMicroservice/confsvr/src/main/resources/config/licensingservice/
+#management:
+#    endpoint:
+#        health:
+#            show-details: always #显示健康具体信息  默认不会显示详细信息
+#    endpoints:
+#        web:
+#            base-path: /actuator #修改访问路径  2.0之前默认是/   2.0默认是 /actuator  可以通过这个属性值修改
+#            exposure:
+#                include: '*' #开放所有页面节点  默认只开启了health、info两个节点
+#    server:
+#        port: 9001 #actuator端口,比如访问 http://localhost:9001/actuator 但是其他请求依然是server.port设置的端口

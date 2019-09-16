@@ -1,0 +1,37 @@
+eureka:
+  instance:
+    hostname: zuulservice #主机名
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${server.port}} #显示名称
+    prefer-ip-address: true #注册服务的IP,而不是服务的名称
+  client:
+    register-with-eureka: true #向Eureka注册服务
+    fetch-registry: true #拉取注册表的本地副本
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ #Eureka服务的位置
+management:
+    endpoint:
+        health:
+            show-details: always #显示健康具体信息  默认不会显示详细信息
+    endpoints:
+        web:
+            base-path: /actuator #修改访问路径  2.0之前默认是/   2.0默认是 /actuator  可以通过这个属性值修改
+            exposure:
+                include: '*' #开放所有页面节点  默认只开启了health、info两个节点
+zuul:
+  routes:
+    configstatic: #Zuul用于内部识别服务的关键字
+      path: /config/**  #配置中心的静态路由
+      url: http://127.0.0.1:8888  #已建立配置中心的静态实例。将被直接调用，而不是由Zuul通过Eureka调用
+#    licensestatic:
+#      path: /licensestatic/**
+#      serviceId: licensestatic #定义一个服务ID，该服务ID将用语在Ribbon中查找服务
+    organizationservice: /organization/** #组织服务映射到organization
+    licensingservice: /licensing/** #许可证服务映射到licensing
+  ignored-services: '*' #ignored-service设置为'*',以排除所有基于Eureka服务ID的路由的注册
+  prefix: /api #将所有已定义的服务都添加前缀/api
+#  ribbon:
+#    eureka:
+#      enabled: false #在Ribbon中禁用Eureka支持
+#  licensestatic:
+#    ribbon:
+#      listOfServers: http://licenseservice-static1:8081,htttp://licenseservice-static2:8081 #指定请求会路由到的服务器列表

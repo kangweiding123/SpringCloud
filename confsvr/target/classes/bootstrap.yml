@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    config:
+      server:
+        encrypt:
+          enabled: false #设置服务端不进行解密
+  application:
+    name: configserver
+encrypt:
+  key-store:
+    location: classpath:/config-server.jks # server.jks的配置文件的路径
+    password: dylan.com      # 设置store的密码
+    alias: config-server-key
+    secret: dylan.com      # keypass密码
+#对称加密密钥
+#  key: dylan
