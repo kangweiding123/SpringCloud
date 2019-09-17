@@ -10,10 +10,10 @@ import org.springframework.web.client.RestTemplate;
 
 @Component
 public class OrganizationRestTemplateClient {
-//    @Autowired
-//    RestTemplate restTemplate;
     @Autowired
-    RestOperations restTemplate;
+    RestTemplate restTemplate;
+//    @Autowired
+//    RestOperations restTemplate;
     public Organization getOrganization(String organizationId) {
         ResponseEntity<Organization> restExchange = restTemplate.exchange(
                 "http://organizationservice/v1/organizations/{organizationId}",
