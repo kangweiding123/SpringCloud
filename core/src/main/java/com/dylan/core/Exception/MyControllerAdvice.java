@@ -16,6 +16,7 @@ public class MyControllerAdvice {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public ResponsResultImpl errorHandler(Exception ex) {
+        ex.printStackTrace();
         return ResponsResultImpl.returnFail();
     }
 
