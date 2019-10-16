@@ -36,7 +36,7 @@ public class ResponsResultImpl implements ResponsResultBase, Serializable {
     }
 
     /**
-     * @return com.chen.model.web.ResultRespons
+     * @return com.chen.com.dylan.specialroutes.model.web.ResultRespons
      * @Description: 返回成功状态
      * @Param []
      * @Author chenhaotao
@@ -47,7 +47,7 @@ public class ResponsResultImpl implements ResponsResultBase, Serializable {
     }
 
     /**
-     * @return com.chen.model.web.ResultRespons
+     * @return com.chen.com.dylan.specialroutes.model.web.ResultRespons
      * @Description: 返回失败状态
      * @Param []
      * @Author chenhaotao

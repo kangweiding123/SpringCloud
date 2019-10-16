@@ -52,13 +52,13 @@ public class TrackingFilter extends ZuulFilter {
     // run方法是每次服务通过过滤器时执行的代码。run方法检查tmx-correlation-id是否存在，如果不存在，则生成一个关联值，并设置HTTP首部tmx-correlation-id
     public Object run() throws ZuulException {
         if (isCorrelationIdPresent()) {
-            logger.debug("tmx-correlation-id found in tracking filter: {}.", filterUtils.getCorrelationId());
+            logger.info("tmx-correlation-id found in tracking filter: {}.", filterUtils.getCorrelationId());
         } else {
             filterUtils.setCorrelationId(generateCorrelationId());
-            logger.debug("tmx-correlation-id generated in tracking filter: {}.", filterUtils.getCorrelationId());
+            logger.info("tmx-correlation-id generated in tracking filter: {}.", filterUtils.getCorrelationId());
         }
         RequestContext ctx = RequestContext.getCurrentContext();
-        logger.debug("Processing incoming request for {}.", ctx.getRequest().getRequestURI());
+        logger.info("Processing incoming request for {}.", ctx.getRequest().getRequestURI());
         return null;
     }
 

@@ -1,0 +1,44 @@
+server:
+  port: 8087
+spring:
+  application:
+    name: orgservice-new #制定与可证服务的名称，以便Spring CLoud Config客户端知道正在查找哪个服务
+  profiles:
+    active: default #指定该服务运行的默认profile oprofile映射到环境
+  cloud:
+    config:
+      #uri: http://localhost:8888 #指定Spring Cloud Config服务器的位置
+      enabled: true
+      discovery:
+        enabled: true                                  # 表示使用服务发现组件中的Config Server，而不自己指定Config Server的uri，默认false
+        service-id: configserver  # 指定Config Server在服务发现中的serviceId，默认是configserver
+      name: organizationservice
+encrypt:
+  key-store:
+    location: classpath:/config-server.jks # server.jks的配置文件的路径
+    password: dylan.com      # 设置store的密码
+    alias: config-server-key
+    secret: dylan.com      # keypass密码
+#  key: dylan #解密属性文件的密钥
+
+
+
+#spring:
+#  application:
+#    name: organizationservice
+#  profiles:
+#    active: default
+#  cloud:
+#    config:
+#      enabled: true
+#      discovery:
+#        enabled: true                                  # 表示使用服务发现组件中的Config Server，而不自己指定Config Server的uri，默认false
+#        com.dylan.specialroutes.service-id: configserver  # 指定Config Server在服务发现中的serviceId，默认是configserver
+#server:
+#  port: 8882
+#encrypt:
+#  key-store:
+#    location: classpath:/config-server.jks # server.jks的配置文件的路径
+#    password: dylan.com      # 设置store的密码
+#    alias: config-server-key
+#    secret: dylan.com      # keypass密码

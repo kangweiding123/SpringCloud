@@ -68,7 +68,7 @@ public class LicenseSerriceController {
         responseResult.setResult(data);
         responseResult.setTotal(0);
 //        return ResponseResult.returnTimeOut();
-//        return responseResult;
-        throw new MyException("9999","自定义错误实验");
+        return responseResult;
+//        throw new MyException("9999","自定义错误实验");
     }
 }
