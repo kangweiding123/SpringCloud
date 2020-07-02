@@ -41,7 +41,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.13</version>
+            <version>8.0.16</version>
         </dependency>
         <!--告诉Spring Boot 拉取 Spring Cloud Config客户端所需要的所有依赖项-->
         <dependency>
